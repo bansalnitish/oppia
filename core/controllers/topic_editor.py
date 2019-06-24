@@ -33,8 +33,7 @@ from core.domain import subtopic_page_services
 from core.domain import topic_domain
 from core.domain import topic_services
 from core.domain import user_services
-import feconf
-import utils
+
 
 import jinja2
 
