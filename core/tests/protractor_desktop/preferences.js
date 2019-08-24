@@ -64,8 +64,8 @@ describe('Preferences', function() {
   });
 
   it('should change prefered site language', function() {
-    users.createUser('paul@preferences.com', 'paulPreferences');
-    users.login('paul@preferences.com');
+    users.createUser('john@preferences.com', 'johnPreferences');
+    users.login('john@preferences.com');
     preferencesPage.get();
     expect(preferencesPage.systemLanguageSelector).toBeUndefined();
     preferencesPage.selectSystemLanguage('Español');
