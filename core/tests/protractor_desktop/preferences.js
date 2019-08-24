@@ -48,22 +48,6 @@ describe('Preferences', function() {
     expect(preferencesPage.isFeedbackEmailsCheckboxSelected()).toBe(false);
   });
 
-  it('should set and edit bio in user profile', function() {
-    users.createUser('lisa@preferences.com', 'lisaPreferences');
-    users.login('lisa@preferences.com');
-    preferencesPage.get();
-    preferencesPage.setUserBio('I am Lisa');
-    browser.refresh();
-    preferencesPage.expectUserBioToBe('I am Lisa');
-    preferencesPage.setUserBio('Junior student');
-    browser.refresh();
-    preferencesPage.expectUserBioToBe('Junior student');
-    preferencesPage.editUserBio(' from USA');
-    preferencesPage.editUserBio(' studying CS!');
-    browser.refresh();
-    preferencesPage.expectUserBioToBe('Junior student from USA studying CS!');
-  });
-
   it('should change prefered audio language', function() {
     users.createUser('paul@preferences.com', 'paulPreferences');
     users.login('paul@preferences.com');
@@ -77,6 +61,28 @@ describe('Preferences', function() {
     preferencesPage.expectPreferredAudioLanguageToBe('Arabic');
     browser.refresh();
     preferencesPage.expectPreferredAudioLanguageToBe('Arabic');
+  });
+
+  it('should change prefered site language', function() {
+    users.createUser('paul@preferences.com', 'paulPreferences');
+    users.login('paul@preferences.com');
+    preferencesPage.get();
+    expect(preferencesPage.systemLanguageSelector).toBeUndefined();
+    preferencesPage.selectSystemLanguage('Español');
+    preferencesPage.expectPreferredSiteLanguageToBe('Español');
+    browser.refresh();
+    preferencesPage.expectPreferredSiteLanguageToBe('Español');
+    preferencesPage.selectSystemLanguage('English');
+    preferencesPage.expectPreferredSiteLanguageToBe('English');
+    browser.refresh();
+    preferencesPage.expectPreferredSiteLanguageToBe('English');
+  });
+  
+ it('should change prefered site language',function(){
+    users.createUser('paul@preferences.com', 'paulPreferences');
+    users.login('paul@preferences.com');
+    preferencesPage.get();
+    
   });
 
   afterEach(function() {
