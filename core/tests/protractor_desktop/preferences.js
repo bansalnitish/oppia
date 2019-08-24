@@ -64,6 +64,21 @@ describe('Preferences', function() {
     preferencesPage.expectUserBioToBe('Junior student from USA studying CS!');
   });
 
+  it('should change prefered audio language', function() {
+    users.createUser('paul@preferences.com', 'paulPreferences');
+    users.login('paul@preferences.com');
+    preferencesPage.get();
+    preferencesPage.expectPreferredAudioLanguageToBe('');
+    preferencesPage.selectPreferredAudioLanguage('Hindi');
+    preferencesPage.expectPreferredAudioLanguageToBe('Hindi');
+    browser.refresh();
+    preferencesPage.expectPreferredAudioLanguageToBe('Hindi');
+    preferencesPage.selectPreferredAudioLanguage('Arabic');
+    preferencesPage.expectPreferredAudioLanguageToBe('Arabic');
+    browser.refresh();
+    preferencesPage.expectPreferredAudioLanguageToBe('Arabic');
+  });
+
   afterEach(function() {
     general.checkForConsoleErrors([]);
     users.logout();
