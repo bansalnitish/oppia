@@ -68,7 +68,7 @@ describe('Preferences', function() {
     users.createUser('paul@preferences.com', 'paulPreferences');
     users.login('paul@preferences.com');
     preferencesPage.get();
-    preferencesPage.expectPreferredAudioLanguageToBe(null);
+    preferencesPage.preferredAudioLanguageSelector.isPresent()).toBe(false);
     preferencesPage.selectPreferredAudioLanguage('Hindi');
     preferencesPage.expectPreferredAudioLanguageToBe('Hindi');
     browser.refresh();
