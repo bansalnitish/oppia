@@ -22,4 +22,6 @@ require('pages/thanks-page/thanks-page.module.ts');
 require('App.ts');
 
 require('base-components/base-content.directive.ts');
-require('pages/thanks-page/thanks-page.controller.ts');
+require(
+  'components/common-layout-directives/common-elements/' +
+  'background-banner.directive.ts');
