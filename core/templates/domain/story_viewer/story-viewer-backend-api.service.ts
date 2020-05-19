@@ -42,7 +42,7 @@ export class StoryViewerBackendApiService {
     private http: HttpClient
   ) {}
 
-  _fetchStoryData(storyId: string,
+  _fetchStoryData(storyId: number,
       successCallback: (value?: Object | PromiseLike<Object>) => void,
       errorCallback: (reason?: any) => void): void {
     let storyDataUrl = this.urlInterpolationService.interpolateUrl(
@@ -78,7 +78,7 @@ export class StoryViewerBackendApiService {
     });
   }
 
-  fetchStoryData(storyId: string): Promise<Object> {
+  fetchStoryData(storyId: number): Promise<Object> {
     return new Promise((resolve, reject) => {
       this._fetchStoryData(storyId, resolve, reject);
     });
