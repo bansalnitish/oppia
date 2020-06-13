@@ -32,12 +32,19 @@ export class ExplorationMetadata {
   }
 }
 
+export interface IExplorationMetadataBackendDict {
+  id: string;
+  objective: string;
+  title: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class ExplorationMetadataObjectFactory {
   static createFromBackendDict(
-      explorationMetadataBackendDict: any): ExplorationMetadata {
+      explorationMetadataBackendDict: IExplorationMetadataBackendDict[])
+  : ExplorationMetadata {
     return new ExplorationMetadata(
       explorationMetadataBackendDict.collection_node_metadata_list
     );

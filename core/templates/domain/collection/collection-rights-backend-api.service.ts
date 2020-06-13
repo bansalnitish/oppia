@@ -35,11 +35,10 @@ import { ICollectionRightsBackendDict } from
 export class CollectionRightsBackendApiService {
   // Maps previously loaded collection rights to their IDs.
   collectionRightsCache: Object = {};
-  collectionRightsObjectFactory: CollectionRightsObjectFactory =
-    new CollectionRightsObjectFactory();
 
   constructor(
     private http: HttpClient,
+    private collectionRightsObjectFactory: CollectionRightsObjectFactory,
     private urlInterpolationService: UrlInterpolationService) { }
 
   private _fetchCollectionRights(collectionId: string,

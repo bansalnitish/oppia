@@ -35,7 +35,7 @@ export class QuestionBackendApiService {
     private urlInterpolationService: UrlInterpolationService) {}
 
   private _fetchQuestions(
-      skillIds: Array<string>, questionCount: number,
+      skillIds: string[], questionCount: number,
       questionsSortedByDifficulty: boolean,
       successCallback: (value?: Object | PromiseLike<Object>) => void,
       errorCallback: (reason?: any) => void): void {
@@ -95,7 +95,7 @@ export class QuestionBackendApiService {
    * Does basic validation on input.
    */
   private validateRequestParameters(
-      skillIds: any, questionCount: any,
+      skillIds: string[], questionCount: count,
       errorCallback: (reason?: any) => void): boolean {
     if (!this.isListOfStrings(skillIds)) {
       errorCallback('Skill ids should be a list of strings');

@@ -27,6 +27,11 @@ import { AppConstants } from 'app.constants';
 import { UrlInterpolationService } from
   'domain/utilities/url-interpolation.service';
 
+export interface IGetCollectionDetailsResponse {
+  canEdit: boolean;
+  title: string;
+}
+
 // TODO(bhenning): For preview mode, this service should be replaced by a
 // separate CollectionDataService implementation which returns a local copy of
 // the collection instead. This file should not be included on the page in that
@@ -121,7 +126,7 @@ export class ReadOnlyCollectionBackendApiService {
   }
 
   getCollectionDetails(
-      collectionId: string): {canEdit: boolean, title: string} {
+      collectionId: string): IGetCollectionDetailsResponse {
     if (this._collectionDetailsCache[collectionId]) {
       return this._collectionDetailsCache[collectionId];
     } else {
